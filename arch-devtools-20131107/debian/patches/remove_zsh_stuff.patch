@@ -1,0 +1,56 @@
+Description: <short summary of the patch>
+ .just removed zsh from make install
+ arch-devtools (20131107-1) unstable; urgency=low
+ .
+   * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+Author: Jubei Mitsuyoshi <Jubei Mitsuyoshi <jubei.house.of.five.masters@gmail.com>>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: http://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- arch-devtools-20131107.orig/Makefile
++++ arch-devtools-20131107/Makefile
+@@ -67,7 +67,7 @@ BASHCOMPLETION_LINKS = \
+ 	archco \
+ 	communityco
+ 
+-all: $(BINPROGS) bash_completion zsh_completion
++all: $(BINPROGS) bash_completion
+ 
+ edit = sed -e "s|@pkgdatadir[@]|$(DESTDIR)$(PREFIX)/share/devtools|g"
+ 
+@@ -80,7 +80,7 @@ edit = sed -e "s|@pkgdatadir[@]|$(DESTDI
+ 	@bash -O extglob -n "$@"
+ 
+ clean:
+-	rm -f $(BINPROGS) bash_completion zsh_completion
++	rm -f $(BINPROGS) bash_completion
+ 
+ install:
+ 	install -dm0755 $(DESTDIR)$(PREFIX)/bin
+@@ -93,7 +93,6 @@ install:
+ 	ln -sf find-libdeps $(DESTDIR)$(PREFIX)/bin/find-libprovides
+ 	install -Dm0644 bash_completion $(DESTDIR)/usr/share/bash-completion/completions/devtools
+ 	for l in ${BASHCOMPLETION_LINKS}; do ln -sf devtools $(DESTDIR)/usr/share/bash-completion/completions/$$l; done
+-	install -Dm0644 zsh_completion $(DESTDIR)$(PREFIX)/share/zsh/site-functions/_devtools
+ 	ln -sf archco $(DESTDIR)$(PREFIX)/bin/communityco
+ 
+ uninstall:
+@@ -103,7 +102,6 @@ uninstall:
+ 	for l in ${ARCHBUILD_LINKS}; do rm -f $(DESTDIR)$(PREFIX)/bin/$$l; done
+ 	for l in ${CROSSREPOMOVE_LINKS}; do rm -f $(DESTDIR)$(PREFIX)/bin/$$l; done
+ 	rm $(DESTDIR)/usr/share/bash-completion/completions/devtools
+-	rm $(DESTDIR)$(PREFIX)/share/zsh/site-functions/_devtools
+ 	rm -f $(DESTDIR)$(PREFIX)/bin/communityco
+ 	rm -f $(DESTDIR)$(PREFIX)/bin/find-libprovides
+ 
