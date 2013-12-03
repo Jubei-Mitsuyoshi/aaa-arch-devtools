@@ -13,6 +13,5 @@ Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, openssh, subversion, rsync, arch-install-scripts
 Recommends: namcap
 Description: archlinux devtools mainly
- scripts packaged for debian to enable a naitive
-arch-chroot in a debian box
+ scripts
  
