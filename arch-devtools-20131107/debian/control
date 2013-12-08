@@ -4,12 +4,10 @@ Priority: optional
 Maintainer: Jubei Mitsuyoshi <jubei.house.of.five.masters@gmail.com>
 Build-Depends: debhelper (>= 9.0.0)
 Standards-Version: 3.9.4
-Homepage: https://www.archlinux.org/pacman/#_releases
-#Vcs-Git: git://git.debian.org/collab-maint/archlinux-pacman.git
-#Vcs-Browser: http://git.debian.org/?p=collab-maint/archlinux-pacman.git;a=summary
+Homepage: https://www.archlinux.org/pacman/
 
 Package: arch-devtools
-Architecture: any
+Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}, openssh, subversion, rsync, arch-install-scripts
 Recommends: namcap
 Description: archlinux devtools mainly
