@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Jubei Mitsuyoshi <jubei.house.of.five.masters@gmail.com>
 Build-Depends: debhelper (>= 9.0.0)
 Standards-Version: 3.9.4
-Homepage: https://www.archlinux.org/pacman/
+Homepage: http://projects.archlinux.org/devtools.git/
 
 Package: arch-devtools
 Architecture: all
